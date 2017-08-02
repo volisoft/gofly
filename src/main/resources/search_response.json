@@ -1,0 +1,198 @@
+{
+  "booking_channel_id": 1,
+  "gid": "NoG4Nache",
+  "search_params": {
+    "max_reservations_date": "11/14/2017",
+    "components": {
+      "S": {
+        "type": "S",
+        "from": "2017-03-08",
+        "to": "2017-03-12"
+      },
+      "V": {
+        "default_trip_length": 3,
+        "type": "V",
+        "from": "2017-03-08",
+        "to": "2017-03-12"
+      },
+      "F": {
+        "type": "F",
+        "from": "2017-03-08",
+        "to": "2017-03-12"
+      },
+      "H": {
+        "default_trip_length": 3,
+        "type": "H",
+        "from": "2017-03-08",
+        "to": "2017-03-12"
+      }
+    },
+    "add_convenience_fees": true,
+    "travelers": {
+      "lapchild_dobs": [],
+      "child_dobs": [],
+      "child": [],
+      "adult": 1,
+      "travelers-dob": []
+    },
+    "marketID": 237,
+    "outward": "2017-03-08",
+    "manifest_id": "69xwcadJfWyyqTUBCwUFU3XFfM8IRNxfvXSo0eJs1eM",
+    "httpUserAgent": "Java/1.8.0_121",
+    "clientIP": "10.12.4.72",
+    "rooms": 1,
+    "min_reservations_date": "02/15/2017",
+    "bookingTypeID": 1,
+    "direction": "return",
+    "returning": "2017-03-12",
+    "origin": {
+      "city": "San Francisco",
+      "state": "CA",
+      "code": "OAK",
+      "display_name": "Oakland / San Francisco, CA",
+      "id": 42
+    },
+    "travel_agent_permissions": [],
+    "destination": {
+      "city": "Provo",
+      "state": "UT",
+      "code": "PVU",
+      "display_name": "Provo, UT",
+      "id": 81
+    }
+  },
+  "customerPermissions": [],
+  "active_campaign_names": [],
+  "convenience_fee": {
+    "total": 26,
+    "per_flight": 13
+  },
+  "g4_type": "manifest",
+  "silo": "prd_3",
+  "app_path": "Bookings",
+  "booking_date": "",
+  "cartSummary": {
+    "bags_chg_count": 0,
+    "tripflex_count": 0,
+    "flight_chg_count": 0,
+    "flight_departing_number": "",
+    "bags_checkin_value": 0,
+    "hotel_room_rec_id": 0,
+    "seat_count_max": 0,
+    "flight_value": 0,
+    "transport_count_max": 0,
+    "transport_count": 0,
+    "activities_count": 0,
+    "hotel_id": 0,
+    "tripflex_count_max": 0,
+    "seat_value": 0,
+    "bags_carryon_count_max": 0,
+    "flight_returning_number": "",
+    "hotel_room_count_max": 0,
+    "flight_count": 0,
+    "vehicle_count_max": 0,
+    "flight_min_returning_searched": 91.5,
+    "bags_carryon_value": 0,
+    "flight_departing_carrier": "",
+    "hotel_room_count": 0,
+    "transport_chg_count": 0,
+    "bags_checkin_count": 0,
+    "tax_value": 0,
+    "seat_chg_count": 0,
+    "activities_count_max": 0,
+    "flight_returning_carrier": "",
+    "vehicle_value": 0,
+    "seat_count": 0,
+    "vehicle_id": 0,
+    "tax_chg_count": 0,
+    "tripflex_chg_count": 0,
+    "tripflex_value": 0,
+    "vehicle_chg_count": 0,
+    "cart_total": 0,
+    "bags_carryon_count": 0,
+    "hotel_value": 0,
+    "hotel_chg_count": 0,
+    "activities_chg_count": 0,
+    "transport_value": 0,
+    "vehicle_count": 0,
+    "bags_checkin_count_max": 0,
+    "activities_value": 0
+  },
+  "pricelineHotels": [
+    {
+      "priceline": true,
+      "code": "PVU"
+    },
+    {
+      "priceline": false,
+      "code": "OAK"
+    }
+  ],
+  "meta": {
+    "start_search": "2017-03-06 19:38:47-0800",
+    "abTest": "A"
+  },
+  "instant_credit_info": {
+    "approved": false,
+    "credit_line": 0,
+    "pay_with_instant_credit": false
+  },
+  "last_update_time": 1488857928.4313,
+  "flights": {
+    "departing": "/data/31/69xwcadJfWyyqTUBCwUFU3XFfM8IRNxfvXSo0eJs1eM-OAKPVU",
+    "returning": "/data/31/69xwcadJfWyyqTUBCwUFU3XFfM8IRNxfvXSo0eJs1eM-PVUOAK"
+  },
+  "configuration": {
+    "upsell_periods": {
+      "vehicle": 3,
+      "hotel": 3
+    },
+    "banners": {
+      "confirmation": {
+        "bottom": [
+          {
+            "content": "</a>",
+            "title": "Rebate in-page banner"
+          }
+        ],
+        "heading_banner_b": [
+          {
+            "content": "</a>",
+            "title": "Rental Car Discounts"
+          }
+        ],
+        "heading_banner_a": [
+          {
+            "content": "</a>",
+            "title": "Hotel Package Deals"
+          }
+        ]
+      },
+      "travellers": {
+        "bottom": [
+          {
+            "content": " \r\n \r\n\r\n Download our FREE</strong> Allegiant App to check in, manage, and view your trip!</p>\r\n Now available in your device's app store.</p></div>\r\n</div></div>\r\n \r\n \r\n\r\n Download our FREE</strong> Allegiant App to check in, manage, and view your trip!</p>\r\n Now available in your device's app store.</p></div>\r\n</div></div></div>\r\n",
+            "title": "Advert for travellers page"
+          }
+        ]
+      }
+    },
+    "hide_unavailable_hotel_rooms": {
+      "OAK": true,
+      "PVU": true
+    },
+    "loyalty_points_in_path": true,
+    "show_shuttles_first": {
+      "PVU": false
+    },
+    "pie": {
+      "lib": "https://fes.allegiantair.com/pie/v1/encryption.js",
+      "key": "https://fes.allegiantair.com/pie/v1/1/getkey.js",
+      "enabled": true
+    },
+    "show_pet_in_cabin": true
+  },
+  "history": [],
+  "silo_id": 31,
+  "id": "69xwcadJfWyyqTUBCwUFU3XFfM8IRNxfvXSo0eJs1eM"
+}

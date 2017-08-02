@@ -1,0 +1,682 @@
+[
+  {
+    "id": "G4-345_PVU-LAX_1488960000",
+    "journeyId": null,
+    "orderId": null,
+    "flight_no": "345",
+    "airline_code": "G4",
+    "seat_price": [
+      {
+        "pp": {
+          "id": null,
+          "name": null,
+          "value": 66.5,
+          "type": "calculation",
+          "taxesandfees": 25.76
+        },
+        "availability": 27
+      }
+    ],
+    "legs": [
+      {
+        "from": "PVU",
+        "to": "LAX",
+        "miles": 569,
+        "duration": 109,
+        "model": "31B",
+        "position": 0
+      }
+    ],
+    "origin": "PVU",
+    "destination": "LAX",
+    "departs": "2017-03-08T19:01:00.000-0800",
+    "arrives": "2017-03-08T19:50:00.000-0800",
+    "arrivesTime": 1489031400,
+    "departsTime": 1489028460,
+    "convenience_fee": "13.00",
+    "bag_pricing": {
+      "1": 20,
+      "2": 40,
+      "3": 60,
+      "4": 80
+    },
+    "carry_on_bag": {
+      "1": 15
+    },
+    "airport_bag": {
+      "1": 50,
+      "2": 100,
+      "3": 150,
+      "4": 200
+    },
+    "airport_carry_on_bag": {
+      "1": 50
+    },
+    "pre_departure_bag": {
+      "1": 45,
+      "2": 90,
+      "3": 135,
+      "4": 180
+    },
+    "pre_departure_carry_on_bag": {
+      "1": 45
+    },
+    "priority_boarding_price": 6,
+    "unflownSegmentCount": 1,
+    "cancelled": null,
+    "reaccom": false,
+    "stops": {
+      "PVU": {
+        "code": "PVU",
+        "city": "PROVO",
+        "state": "UT",
+        "name": "Provo Airport (PVU)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Provo, UT"
+      },
+      "LAX": {
+        "code": "LAX",
+        "city": "LOS ANGELES",
+        "state": "CA",
+        "name": "Los Angeles International Airport (LAX)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Los Angeles, CA"
+      }
+    },
+    "ssr": [
+      {
+        "code": "WC",
+        "value": "0.00"
+      },
+      {
+        "code": "HI",
+        "value": "0.00"
+      },
+      {
+        "code": "BL",
+        "value": "0.00"
+      },
+      {
+        "code": "AC",
+        "value": "0.00"
+      },
+      {
+        "code": "MR",
+        "value": "0.00"
+      },
+      {
+        "code": "LC",
+        "value": "0.00"
+      },
+      {
+        "code": "DC",
+        "value": "0.00"
+      },
+      {
+        "code": "MI",
+        "value": "0.00"
+      },
+      {
+        "code": "EW",
+        "value": "0.00"
+      },
+      {
+        "code": "MW",
+        "value": "0.00"
+      },
+      {
+        "code": "OX",
+        "value": "0.00"
+      },
+      {
+        "code": "SV",
+        "value": "0.00"
+      },
+      {
+        "code": "LA",
+        "value": "100.00"
+      },
+      {
+        "code": "AN",
+        "value": "0.00"
+      },
+      {
+        "code": "BD",
+        "value": "0.00"
+      },
+      {
+        "code": "BW",
+        "value": "0.00"
+      },
+      {
+        "code": "HR",
+        "value": "0.00"
+      },
+      {
+        "code": "HS",
+        "value": "0.00"
+      },
+      {
+        "code": "LB",
+        "value": "0.00"
+      },
+      {
+        "code": "PN",
+        "value": "0.00"
+      }
+    ],
+    "market": "PVULAX"
+  },
+  {
+    "id": "G4-345_PVU-LAX_1489132800",
+    "journeyId": null,
+    "orderId": null,
+    "flight_no": "345",
+    "airline_code": "G4",
+    "seat_price": [
+      {
+        "pp": {
+          "id": null,
+          "name": null,
+          "value": 123.5,
+          "type": "calculation",
+          "taxesandfees": 29.73
+        },
+        "availability": 1
+      }
+    ],
+    "legs": [
+      {
+        "from": "PVU",
+        "to": "LAX",
+        "miles": 569,
+        "duration": 109,
+        "model": "31B",
+        "position": 0
+      }
+    ],
+    "origin": "PVU",
+    "destination": "LAX",
+    "departs": "2017-03-10T10:23:00.000-0800",
+    "arrives": "2017-03-10T11:12:00.000-0800",
+    "arrivesTime": 1489173120,
+    "departsTime": 1489170180,
+    "convenience_fee": "13.00",
+    "bag_pricing": {
+      "1": 20,
+      "2": 40,
+      "3": 60,
+      "4": 80
+    },
+    "carry_on_bag": {
+      "1": 15
+    },
+    "airport_bag": {
+      "1": 50,
+      "2": 100,
+      "3": 150,
+      "4": 200
+    },
+    "airport_carry_on_bag": {
+      "1": 50
+    },
+    "pre_departure_bag": {
+      "1": 45,
+      "2": 90,
+      "3": 135,
+      "4": 180
+    },
+    "pre_departure_carry_on_bag": {
+      "1": 45
+    },
+    "priority_boarding_price": 6,
+    "unflownSegmentCount": 1,
+    "cancelled": null,
+    "reaccom": false,
+    "stops": {
+      "PVU": {
+        "code": "PVU",
+        "city": "PROVO",
+        "state": "UT",
+        "name": "Provo Airport (PVU)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Provo, UT"
+      },
+      "LAX": {
+        "code": "LAX",
+        "city": "LOS ANGELES",
+        "state": "CA",
+        "name": "Los Angeles International Airport (LAX)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Los Angeles, CA"
+      }
+    },
+    "ssr": [
+      {
+        "code": "WC",
+        "value": "0.00"
+      },
+      {
+        "code": "HI",
+        "value": "0.00"
+      },
+      {
+        "code": "BL",
+        "value": "0.00"
+      },
+      {
+        "code": "AC",
+        "value": "0.00"
+      },
+      {
+        "code": "MR",
+        "value": "0.00"
+      },
+      {
+        "code": "LC",
+        "value": "0.00"
+      },
+      {
+        "code": "DC",
+        "value": "0.00"
+      },
+      {
+        "code": "MI",
+        "value": "0.00"
+      },
+      {
+        "code": "EW",
+        "value": "0.00"
+      },
+      {
+        "code": "MW",
+        "value": "0.00"
+      },
+      {
+        "code": "OX",
+        "value": "0.00"
+      },
+      {
+        "code": "SV",
+        "value": "0.00"
+      },
+      {
+        "code": "LA",
+        "value": "100.00"
+      },
+      {
+        "code": "AN",
+        "value": "0.00"
+      },
+      {
+        "code": "BD",
+        "value": "0.00"
+      },
+      {
+        "code": "BW",
+        "value": "0.00"
+      },
+      {
+        "code": "HR",
+        "value": "0.00"
+      },
+      {
+        "code": "HS",
+        "value": "0.00"
+      },
+      {
+        "code": "LB",
+        "value": "0.00"
+      },
+      {
+        "code": "PN",
+        "value": "0.00"
+      }
+    ],
+    "market": "PVULAX"
+  },
+  {
+    "id": "G4-345_PVU-LAX_1489388400",
+    "journeyId": null,
+    "orderId": null,
+    "flight_no": "345",
+    "airline_code": "G4",
+    "seat_price": [
+      {
+        "pp": {
+          "id": null,
+          "name": null,
+          "value": 55.5,
+          "type": "calculation",
+          "taxesandfees": 24.99
+        },
+        "availability": 34
+      }
+    ],
+    "legs": [
+      {
+        "from": "PVU",
+        "to": "LAX",
+        "miles": 569,
+        "duration": 109,
+        "model": "31B",
+        "position": 0
+      }
+    ],
+    "origin": "PVU",
+    "destination": "LAX",
+    "departs": "2017-03-13T10:23:00.000-0700",
+    "arrives": "2017-03-13T11:12:00.000-0700",
+    "arrivesTime": 1489428720,
+    "departsTime": 1489425780,
+    "convenience_fee": "13.00",
+    "bag_pricing": {
+      "1": 20,
+      "2": 40,
+      "3": 60,
+      "4": 80
+    },
+    "carry_on_bag": {
+      "1": 15
+    },
+    "airport_bag": {
+      "1": 50,
+      "2": 100,
+      "3": 150,
+      "4": 200
+    },
+    "airport_carry_on_bag": {
+      "1": 50
+    },
+    "pre_departure_bag": {
+      "1": 45,
+      "2": 90,
+      "3": 135,
+      "4": 180
+    },
+    "pre_departure_carry_on_bag": {
+      "1": 45
+    },
+    "priority_boarding_price": 6,
+    "unflownSegmentCount": 1,
+    "cancelled": null,
+    "reaccom": false,
+    "stops": {
+      "PVU": {
+        "code": "PVU",
+        "city": "PROVO",
+        "state": "UT",
+        "name": "Provo Airport (PVU)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Provo, UT"
+      },
+      "LAX": {
+        "code": "LAX",
+        "city": "LOS ANGELES",
+        "state": "CA",
+        "name": "Los Angeles International Airport (LAX)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Los Angeles, CA"
+      }
+    },
+    "ssr": [
+      {
+        "code": "WC",
+        "value": "0.00"
+      },
+      {
+        "code": "HI",
+        "value": "0.00"
+      },
+      {
+        "code": "BL",
+        "value": "0.00"
+      },
+      {
+        "code": "AC",
+        "value": "0.00"
+      },
+      {
+        "code": "MR",
+        "value": "0.00"
+      },
+      {
+        "code": "LC",
+        "value": "0.00"
+      },
+      {
+        "code": "DC",
+        "value": "0.00"
+      },
+      {
+        "code": "MI",
+        "value": "0.00"
+      },
+      {
+        "code": "EW",
+        "value": "0.00"
+      },
+      {
+        "code": "MW",
+        "value": "0.00"
+      },
+      {
+        "code": "OX",
+        "value": "0.00"
+      },
+      {
+        "code": "SV",
+        "value": "0.00"
+      },
+      {
+        "code": "LA",
+        "value": "100.00"
+      },
+      {
+        "code": "AN",
+        "value": "0.00"
+      },
+      {
+        "code": "BD",
+        "value": "0.00"
+      },
+      {
+        "code": "BW",
+        "value": "0.00"
+      },
+      {
+        "code": "HR",
+        "value": "0.00"
+      },
+      {
+        "code": "HS",
+        "value": "0.00"
+      },
+      {
+        "code": "LB",
+        "value": "0.00"
+      },
+      {
+        "code": "PN",
+        "value": "0.00"
+      }
+    ],
+    "market": "PVULAX"
+  },
+  {
+    "id": "G4-345_PVU-LAX_1489561200",
+    "journeyId": null,
+    "orderId": null,
+    "flight_no": "345",
+    "airline_code": "G4",
+    "seat_price": [
+      {
+        "pp": {
+          "id": null,
+          "name": null,
+          "value": 55.5,
+          "type": "calculation",
+          "taxesandfees": 24.99
+        },
+        "availability": 39
+      }
+    ],
+    "legs": [
+      {
+        "from": "PVU",
+        "to": "LAX",
+        "miles": 569,
+        "duration": 109,
+        "model": "31B",
+        "position": 0
+      }
+    ],
+    "origin": "PVU",
+    "destination": "LAX",
+    "departs": "2017-03-15T19:01:00.000-0700",
+    "arrives": "2017-03-15T19:50:00.000-0700",
+    "arrivesTime": 1489632600,
+    "departsTime": 1489629660,
+    "convenience_fee": "13.00",
+    "bag_pricing": {
+      "1": 20,
+      "2": 40,
+      "3": 60,
+      "4": 80
+    },
+    "carry_on_bag": {
+      "1": 15
+    },
+    "airport_bag": {
+      "1": 50,
+      "2": 100,
+      "3": 150,
+      "4": 200
+    },
+    "airport_carry_on_bag": {
+      "1": 50
+    },
+    "pre_departure_bag": {
+      "1": 45,
+      "2": 90,
+      "3": 135,
+      "4": 180
+    },
+    "pre_departure_carry_on_bag": {
+      "1": 45
+    },
+    "priority_boarding_price": 6,
+    "unflownSegmentCount": 1,
+    "cancelled": null,
+    "reaccom": false,
+    "stops": {
+      "PVU": {
+        "code": "PVU",
+        "city": "PROVO",
+        "state": "UT",
+        "name": "Provo Airport (PVU)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Provo, UT"
+      },
+      "LAX": {
+        "code": "LAX",
+        "city": "LOS ANGELES",
+        "state": "CA",
+        "name": "Los Angeles International Airport (LAX)",
+        "longitude": "",
+        "latitude": "",
+        "display_name": "Los Angeles, CA"
+      }
+    },
+    "ssr": [
+      {
+        "code": "WC",
+        "value": "0.00"
+      },
+      {
+        "code": "HI",
+        "value": "0.00"
+      },
+      {
+        "code": "BL",
+        "value": "0.00"
+      },
+      {
+        "code": "AC",
+        "value": "0.00"
+      },
+      {
+        "code": "MR",
+        "value": "0.00"
+      },
+      {
+        "code": "LC",
+        "value": "0.00"
+      },
+      {
+        "code": "DC",
+        "value": "0.00"
+      },
+      {
+        "code": "MI",
+        "value": "0.00"
+      },
+      {
+        "code": "EW",
+        "value": "0.00"
+      },
+      {
+        "code": "MW",
+        "value": "0.00"
+      },
+      {
+        "code": "OX",
+        "value": "0.00"
+      },
+      {
+        "code": "SV",
+        "value": "0.00"
+      },
+      {
+        "code": "LA",
+        "value": "100.00"
+      },
+      {
+        "code": "AN",
+        "value": "0.00"
+      },
+      {
+        "code": "BD",
+        "value": "0.00"
+      },
+      {
+        "code": "BW",
+        "value": "0.00"
+      },
+      {
+        "code": "HR",
+        "value": "0.00"
+      },
+      {
+        "code": "HS",
+        "value": "0.00"
+      },
+      {
+        "code": "LB",
+        "value": "0.00"
+      },
+      {
+        "code": "PN",
+        "value": "0.00"
+      }
+    ],
+    "market": "PVULAX"
+  }
+]
