@@ -12,12 +12,7 @@ import jsonBackends.jawn._
 import rapture.uri._
 import rapture.io._
 import rapture.net._
-import rapture.codec._
-import encodings.`UTF-8`._
-import org.jsoup.Jsoup
-import rapture.data.DataContext
-
-import scala.collection.immutable.Seq
+import org.jsoup.{Connection, Jsoup}
 
 /**
   * Created by dev on 2/28/17.
@@ -38,12 +33,16 @@ object AllegiantApi {
   }
 
   case class Flight(origin: String, destination: String, departs: ZonedDateTime, arrives: ZonedDateTime,
-                    flight_no: String, airline_code: String, price: Int, availability: Int)
+                    flight_no: String, airline_code: String, price: Int, availability: Int) {
+    override def toString: String = s"[$origin ($departs) -> $destination($arrives)]"
+  }
 
   case class Segment(from: String, to: String, departAt: LocalDate, arriveAt: LocalDate, price: Int)
 
 
-  def dates(from: String, to: String): (Map[String, List[LocalDate]], Range[LocalDate]) = {
+  type ValidityPeriod = Range[LocalDate]
+
+  def dates(from: String, to: String): (Map[String, List[LocalDate]], ValidityPeriod) = {
     implicit val dateExtractor = Json.extractor[String].map(LocalDate.parse(_))
     val dates: HttpUrl = uri"https://www.allegiantair.com/g4search/api/flight/calendar/$from/$to"
     val datesData = dates.httpGet().slurp[Char]
@@ -68,7 +67,19 @@ object AllegiantApi {
                                }
                              }""".stripMargin.replaceAll("\n", " ")
 
-    val searchAttributesJson = Jsoup.connect("https://www.allegiantair.com/g4search/api/booking/search").requestBody(searchRequest).post().body().text()
+    val preSearchResponse = Jsoup.connect("https://www.allegiantair.com/g4search/api/booking/search")
+      .ignoreContentType(true)
+      .requestBody(searchRequest)
+      .method(Connection.Method.POST)
+      .followRedirects(false)
+      .execute()
+
+    val manifestId = preSearchResponse.header("manifest-id")
+    val siloId = preSearchResponse.header("silo-id")
+
+    val searchAttributesJson = Jsoup.connect(s"https://www.allegiantair.com/data/$siloId/$manifestId?id=$manifestId")
+      .ignoreContentType(true)
+      .get().body().text()
 
     val departingUri = Json.parse(searchAttributesJson) match {
       case json""" { "id": $id,
@@ -87,7 +98,7 @@ object AllegiantApi {
     flights
   }
 
-  def extractFlight(json: Json): Flight = json match {
+  private def extractFlight(json: Json): Flight = json match {
     case json"""
          {
            "origin": $origin,
@@ -114,12 +125,15 @@ object AllegiantApi {
 
   def isValidItinerary(itinerary: List[Flight]): Boolean = itinerary match {
     case Nil => true
-    case x :: Nil => true
+    case _ :: Nil => true
     case x :: y :: xs => (x.arrives isBefore y.departs) && isValidItinerary(y :: xs)
   }
 
   def itineraries(path: List[String], departAt: LocalDate, returnAt: LocalDate): List[List[Flight]] = {
-    val sections = path.reverse.sliding(2).map { case from :: to :: Nil => availableFlights(from, to, departAt, returnAt) }.toList.reverse
+    val sections = path.reverse.sliding(2).map {
+      case from :: to :: Nil => availableFlights(from, to, departAt, returnAt)
+    }.toList.reverse
+
     val its = sections.foldLeft(List(List[Flight]())) { (acc, flights) =>
         for {
           itinerary <- acc
@@ -133,7 +147,8 @@ object AllegiantApi {
 
   def main(args: Array[String]): Unit = {
     val json = Json parse Source
-              .fromFile("/home/dev/workspace/gofly/src/main/resources/allegiant-search-form.json").getLines().mkString
+              .fromFile("/home/dev/workspace/gofly/src/main/resources/allegiant-search-form-9aug2017.json")
+              .getLines().mkString
     val (airports, graph) = createGraph(json)
 
     val from = ", ut"
@@ -147,9 +162,10 @@ object AllegiantApi {
 
     val its = for {
       path <- paths
-      itinerary <- itineraries(path, LocalDate.parse("2017-05-21"), LocalDate.parse("2017-05-28"))
+      itinerary <- itineraries(path, LocalDate.parse("2017-08-21"), LocalDate.parse("2017-08-28"))
     } yield itinerary
-    println(its)
+
+    its.foreach((x: List[Flight]) => println(show(x)))
   }
 
   def createGraph(json: Json): (List[Airport], Digraph[String]) = {
