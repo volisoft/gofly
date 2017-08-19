@@ -1,3 +1,7 @@
+import java.time.temporal.{ChronoUnit}
+
+import fly.AllegiantApi.Flight
+
 /**
   * Created by dev on 3/3/17.
   */
@@ -90,5 +94,15 @@ package object fly {
     }
 
     loop(G, List(source), Set())
+  }
+
+  def show(itinerary: List[Flight]): String = {
+    val route = itinerary.foldLeft(itinerary.head.origin)((path, connection) => s"$path -> ${connection.destination}")
+    val price = itinerary.foldLeft(0)(_ + _.price)
+    val duration = itinerary.foldLeft(0L)((z, conn) => z + conn.departs.until(conn.arrives, ChronoUnit.HOURS))
+    val departAt = itinerary.head.departs
+    val arriveAt = itinerary.last.arrives
+
+    s"$$$price | $duration hrs | $route | depart at: $departAt, arrive at: $arriveAt"
   }
 }
