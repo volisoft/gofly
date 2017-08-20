@@ -1,4 +1,4 @@
-import java.time.temporal.{ChronoUnit}
+import java.time.temporal.ChronoUnit
 
 import fly.AllegiantApi.Flight
 
@@ -11,19 +11,22 @@ package object fly {
     def adj(v: T): Iterable[T]
     def indegree(v: T): Int
     def outdegree(v: T): Int
-    def V: Int
+    def vertices: Int
+    def contains(v: T): Boolean
   }
 
   case class EmptyDigraph[T]() extends Digraph[T] {
-    override def addEdge(v: T, w: T): Digraph[T] = NonemptyDigraph[T](Map(v -> Set(w)), E = 1, indegree0 = Map(w -> 1))
+    override def addEdge(v: T, w: T): Digraph[T] = NonemptyDigraph(Map(v -> Set(w)), E = 1, indegree0 = Map(w -> 1))
 
-    override def adj(v: T): Iterable[T] = throw new Error("Empty.adj")
+    override def adj(v: T): Iterable[T] = List()
 
     override def indegree(v: T): Int = 0
 
     override def outdegree(v: T): Int = 0
 
-    override def V: Int = 0
+    override def vertices: Int = 0
+
+    override def contains(v: T): Boolean = false
   }
 
   case class NonemptyDigraph[T](adjacency: Map[T, Set[T]], E: Int, indegree0: Map[T, Int]) extends Digraph[T] {
@@ -36,11 +39,13 @@ package object fly {
 
     override def adj(v: T): Iterable[T] = adjacency.getOrElse(v, Nil)
 
-    override def indegree(v: T): Int = indegree0(v)
+    override def indegree(v: T): Int = indegree0.getOrElse(v, 0)
 
     override def outdegree(v: T): Int = adjacency.getOrElse(v, List()).size
 
-    override def V: Int = E + 1
+    override def vertices: Int = E + 1
+
+    override def contains(v: T): Boolean = indegree0.contains(v) || adjacency.contains(v)
   }
 
   case class EmptyDigraphList[T]() extends Digraph[T] {
@@ -52,7 +57,9 @@ package object fly {
 
     override def outdegree(v: T): Int = 0
 
-    override def V: Int = 0
+    override def vertices: Int = 0
+
+    override def contains(v: T): Boolean = false
   }
 
   case class NonemptyDigraphList[T](adjacency: Map[T, List[T]], E: Int, indegree0: Map[T, Int]) extends Digraph[T] {
@@ -63,24 +70,28 @@ package object fly {
       NonemptyDigraphList(adjacency + (v -> vw), E + 1, indegree0 + (w -> degree))
     }
 
-    override def adj(v: T): Iterable[T] = adjacency.getOrElse(v, Nil)
+    override def adj(v: T): Iterable[T] = adjacency.getOrElse(v, List())
 
     override def indegree(v: T): Int = indegree0(v)
 
-    override def outdegree(v: T): Int = adjacency.getOrElse(v, List()).size
+    override def outdegree(v: T): Int = adj(v).size
 
-    override def V: Int = E + 1
+    override def vertices: Int = E + 1
+
+    override def contains(v: T): Boolean = indegree0.contains(v) || adjacency.contains(v)
   }
 
-  def pathsTailRecursive[T](G: Digraph[T], source: T, depth: Int): List[List[T]] = {
-    type Paths = List[List[T]]
-    def loop(acc: Paths, toVisit: Paths)(implicit G: Digraph[T]): Paths = toVisit match {
+  type Paths[T] = List[List[T]]
+  def pathsTailRecursive[T](G: Digraph[T], source: T, length: Int): Paths[T] = {
+    def loop(acc: Paths[T], toVisit: Paths[T])(implicit G: Digraph[T]): Paths[T] = toVisit match {
       case Nil => acc
       case path :: xs =>
-        val next = for (v <- G.adj(path.head) if !path.contains(v) && path.size <= depth) yield v :: path
+        val next = for (v <- G.adj(path.head) if !path.contains(v) && path.size <= length) yield v :: path
         loop(path :: acc, next.toList ++ xs)
     }
-    loop(List(), List(List(source)))(G)
+
+    val initialPaths = G.adj(source).map(List(_, source)).toList
+    loop(List(), initialPaths)(G)
   }
 
   def dfsRecursive[T](G: Digraph[T], source: T): Iterable[Iterable[T]] = {
@@ -99,10 +110,10 @@ package object fly {
   def show(itinerary: List[Flight]): String = {
     val route = itinerary.foldLeft(itinerary.head.origin)((path, connection) => s"$path -> ${connection.destination}")
     val price = itinerary.foldLeft(0)(_ + _.price)
-    val duration = itinerary.foldLeft(0L)((z, conn) => z + conn.departs.until(conn.arrives, ChronoUnit.HOURS))
+    val duration = itinerary.head.departs.until(itinerary.last.arrives, ChronoUnit.MINUTES)
     val departAt = itinerary.head.departs
     val arriveAt = itinerary.last.arrives
 
-    s"$$$price | $duration hrs | $route | depart at: $departAt, arrive at: $arriveAt"
+    s"$$$price | ${duration/60} hrs ${duration%60} min | $route | $departAt -> $arriveAt"
   }
 }
