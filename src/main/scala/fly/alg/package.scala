@@ -1,11 +1,9 @@
-import java.time.temporal.ChronoUnit
-
-import fly.AllegiantApi.Flight
+package fly
 
 /**
   * Created by dev on 3/3/17.
   */
-package object fly {
+package object alg {
   abstract class Digraph[T] {
     def addEdge(v: T, w: T): Digraph[T]
     def adj(v: T): Iterable[T]
@@ -82,6 +80,7 @@ package object fly {
   }
 
   type Paths[T] = List[List[T]]
+
   def pathsTailRecursive[T](G: Digraph[T], source: T, length: Int): Paths[T] = {
     def loop(acc: Paths[T], toVisit: Paths[T])(implicit G: Digraph[T]): Paths[T] = toVisit match {
       case Nil => acc
@@ -105,15 +104,5 @@ package object fly {
     }
 
     loop(G, List(source), Set())
-  }
-
-  def show(itinerary: List[Flight]): String = {
-    val route = itinerary.foldLeft(itinerary.head.origin)((path, connection) => s"$path -> ${connection.destination}")
-    val price = itinerary.foldLeft(0)(_ + _.price)
-    val duration = itinerary.head.departs.until(itinerary.last.arrives, ChronoUnit.MINUTES)
-    val departAt = itinerary.head.departs
-    val arriveAt = itinerary.last.arrives
-
-    s"$$$price | ${duration/60} hrs ${duration%60} min | $route | $departAt -> $arriveAt"
   }
 }

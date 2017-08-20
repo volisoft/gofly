@@ -1,4 +1,7 @@
-package fly
+package fly.alg
+
+import fly.UnitSpec
+
 import scala.collection.immutable
 
 class DigraphSpec extends UnitSpec {
@@ -78,9 +81,5 @@ class DigraphSpec extends UnitSpec {
     val ps = paths(graph4TreeCycled, a_)(edges)
     ps.foreach(x => assert(x.size <= vertices))
     assert(ps.size == 3)
-  }
-
-  private def assert[T](actualPaths: List[List[T]], expSize: Int, expectedPaths: List[List[T]]) = {
-
   }
 }
